@@ -7,13 +7,15 @@ export default class Profile extends React.Component {
         const jwt = localStorage.getItem('JWT');
 
         axios({
-            method: 'get',
+            method: 'GET',
             url: '127.0.0.1:5000/api/v1/users/me',
             'headers': {
                 Authorization: `Bearer ${jwt}`
             }
         }).then(results => {
             console.log(results)
+        }).catch(error => {
+            console.log(error)
         })
     }
 
