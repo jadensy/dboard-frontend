@@ -1,7 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button, Icon } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Icon } from '@material-ui/core';
 import Signup from './Signup';
+import Login from './Login';
 
 const styles = theme => ({
     appBar: {
@@ -38,7 +39,7 @@ class Navbar extends React.Component {
                     <Typography variant="h6" color="inherit" className={classes.grow}>
                         <Icon>show_chart</Icon>Dashboard
                     </Typography>
-                    <Button color="inherit" onClick={this.toggleDialog}>Login</Button>
+                    <Login />
                     <Signup />
                 </Toolbar>
             </AppBar>

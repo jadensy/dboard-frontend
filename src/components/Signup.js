@@ -1,16 +1,6 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 import axios from 'axios';
-
-const styles = theme => ({
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-        margin: 'auto',
-        width: 'fit-content',
-    },
-});
 
 class Signup extends React.Component {
     state = {
@@ -51,10 +41,9 @@ class Signup extends React.Component {
         }).then(response => {
             console.log(response)
                 if (response.data.status === "success"){
-                    sessionStorage.setItem('JWT', response.data.auth_token)
+                    localStorage.setItem('JWT', response.data.auth_token)
                     this.setState({ dialogOpen: false, message: response.data.message })
                 } else {
-                    // console.log(response.data.message)
                     this.setState({ message: response.data.message })
                 }
         }).catch(error => {
@@ -103,4 +92,4 @@ class Signup extends React.Component {
     }
 }
 
-export default withStyles(styles)(Signup);
+export default Signup;
