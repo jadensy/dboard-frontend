@@ -5,7 +5,6 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 // import components
 import Navbar from './components/Navbar.js';
-import Signup from './components/Signup.js';
 
 const theme = createMuiTheme({
   palette: {
