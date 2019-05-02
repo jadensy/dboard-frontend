@@ -10,6 +10,7 @@ import Navbar from './components/Navbar.js';
 import Profile from './pages/Profile.js'
 // import Dashboard from './pages/Dashboard.js'
 import Projects from './pages/Projects.js'
+import Clients from './pages/Clients.js'
 // import Profile from './pages/Profile.js'
 
 const theme = createMuiTheme({
@@ -46,6 +47,7 @@ function App() {
       </MuiThemeProvider>
       <Route path="/profile" component={Profile} />
       <Route path="/projects" component={Projects} />
+      <Route path="/clients" component={Clients} />
     </div>
   );
 }

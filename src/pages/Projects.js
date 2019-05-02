@@ -19,13 +19,9 @@ export default class Projects extends React.Component {
                 Authorization: `Bearer ${jwt}`
             }
         }).then(response => {
-            // console.log(response)
             this.setState({ projectData: response.data })
-            console.log(this.state.projectData)
         }).catch(error => {
-            console.log(error)
             this.setState({ error: 'Not logged in.' })
-            console.log(this.state.error)
         })
     }
 
@@ -33,7 +29,7 @@ export default class Projects extends React.Component {
         return(
             <div>
                 <Typography variant="h4">Projects</Typography>
-                {(this.state.error != '') ? <p>You must be logged in to view this page.</p> : '' }
+                {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> : '' }
                 <Paper>
                     <Table>
                         <TableHead>
@@ -47,7 +43,7 @@ export default class Projects extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.projectData.map(row => (
+                            {this.state.projectData.sort((a,b) => a.id - b.id).map(row => (
                                 <TableRow key={row.id}>
                                     <TableCell>{row.id}</TableCell>
                                     <TableCell>{row.date}</TableCell>
