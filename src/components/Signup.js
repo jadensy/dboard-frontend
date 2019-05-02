@@ -1,7 +1,17 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 
-export default class Signup extends React.Component {
+const styles = theme => ({
+    form: {
+        display: 'flex',
+        flexDirection: 'column',
+        margin: 'auto',
+        width: 'fit-content',
+    },
+});
+
+class Signup extends React.Component {
     state = {
         dialogOpen: false,
     };
@@ -13,7 +23,7 @@ export default class Signup extends React.Component {
     render() {
         return(
             <>
-                <Button variant="contained" color="primary" onClick={this.handleDialog}>
+                <Button color="inherit" onClick={this.handleDialog}>
                     Sign Up
                 </Button>
 
@@ -25,6 +35,9 @@ export default class Signup extends React.Component {
                         <TextField type="password" label="Password" placeholder="Password" margin="dense" /><br />
                         <TextField type="password" label="Confirm password" placeholder="Confirm password" margin="dense" />
                     </DialogContent>
+                    <DialogActions>
+                        <Button color="secondary">SIGN UP</Button>
+                    </DialogActions>
 
                 </Dialog>
 
@@ -33,6 +46,7 @@ export default class Signup extends React.Component {
     }
 }
 
+export default withStyles(styles)(Signup);
 
 // export default class FormDialog extends React.Component {
 //     state = {
