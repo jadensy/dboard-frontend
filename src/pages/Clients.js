@@ -20,7 +20,6 @@ export default class Clients extends React.Component {
             }
         }).then(response => {
             this.setState({ clientData: response.data })
-            console.log(this.state.clientData)
         }).catch(error => {
             console.log(error)
             this.setState({ error: 'Not logged in.' })

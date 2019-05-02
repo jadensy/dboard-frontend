@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 // import materialUI
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
+// import Icon from '@material-ui/core/Icon';
 // import components
 import Navbar from './components/Navbar.js';
 import Profile from './pages/Profile.js'
