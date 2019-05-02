@@ -3,17 +3,23 @@ import axios from 'axios';
 
 
 export default class Profile extends React.Component {
+    state = {
+        username: '',
+        email: '',
+        password: '',
+    }
+
     componentDidMount(){
         const jwt = localStorage.getItem('JWT');
 
         axios({
             method: 'GET',
-            url: '127.0.0.1:5000/api/v1/users/me',
+            url: 'http://127.0.0.1:5000/api/v1/users/me',
             'headers': {
                 Authorization: `Bearer ${jwt}`
             }
-        }).then(results => {
-            console.log(results)
+        }).then(response => {
+            console.log(response)
         }).catch(error => {
             console.log(error)
         })
@@ -22,7 +28,7 @@ export default class Profile extends React.Component {
     render() {
         return(
             <div>
-                hello?
+                User Profile
             </div>
         )
     }

@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+
 // import materialUI
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 // import components
 import Navbar from './components/Navbar.js';
+import Profile from './pages/Profile.js'
+// import Dashboard from './pages/Dashboard.js'
+import Projects from './pages/Projects.js'
+// import Profile from './pages/Profile.js'
 
 const theme = createMuiTheme({
   palette: {
@@ -35,10 +41,11 @@ function App() {
       <MuiThemeProvider theme={theme}>
         <header className="App-header">
           <Navbar />
-          <Icon color="primary">star</Icon>
+          {/* <Icon color="primary">star</Icon> */}
         </header>
       </MuiThemeProvider>
-
+      <Route path="/profile" component={Profile} />
+      <Route path="/projects" component={Projects} />
     </div>
   );
 }

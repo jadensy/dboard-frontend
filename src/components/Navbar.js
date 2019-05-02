@@ -7,6 +7,7 @@ import Login from './Login';
 const styles = theme => ({
     appBar: {
         backgroundColor: `${theme.palette.primary.main}`,
+        position: "static"
     },
     root: {
         flexGrow: 1,
@@ -34,15 +35,17 @@ class Navbar extends React.Component {
         const { classes } = this.props;
 
         return(
-            <AppBar position="absolute" className={classes.appBar}>
-                <Toolbar>
-                    <Typography variant="h6" color="inherit" className={classes.grow}>
-                        <Icon>show_chart</Icon>Dashboard
-                    </Typography>
-                    <Login />
-                    <Signup />
-                </Toolbar>
-            </AppBar>
+            <div>
+                <AppBar className={classes.appBar}>
+                    <Toolbar>
+                        <Typography variant="h6" color="inherit" className={classes.grow}>
+                            <Icon>show_chart</Icon>Dashboard
+                        </Typography>
+                        <Login />
+                        <Signup />
+                    </Toolbar>
+                </AppBar>
+            </div>
         )
     }
 }
