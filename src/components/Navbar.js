@@ -22,6 +22,13 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             dialog: false,
+            loggedIn: false,
+        }
+    }
+
+    componentDidMount() {
+        if (localStorage.getItem('JWT')) {
+            this.setState({ loggedIn: true })
         }
     }
 
@@ -30,6 +37,7 @@ class Navbar extends React.Component {
             dialog: !prevState.dialog
         }))
     }
+
     render() {
 
         const { classes } = this.props;
@@ -41,8 +49,12 @@ class Navbar extends React.Component {
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             <Icon>show_chart</Icon>Dashboard
                         </Typography>
-                        <Login />
-                        <Signup />
+                        {!this.state.loggedIn ?
+                        <>
+                            <Login />
+                            <Signup />
+                        </>
+                        : <p> Log Out</p> }
                     </Toolbar>
                 </AppBar>
             </div>
