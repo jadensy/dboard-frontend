@@ -47,6 +47,7 @@ export default class Projects extends React.Component {
         npType: '',
         npCurrency: '',
         npTotal: '',
+        updateData: [],
     }
 
     componentDidMount(){
@@ -104,7 +105,18 @@ export default class Projects extends React.Component {
                 total: this.state.npTotal
             }
         }).then(response => {
-            console.log(response)
+            if (response.data.status === "success") {
+                let newData = {
+                    ...response.data.project,
+                    'client_name': response.data.project.client.name
+                }
+                this.setState({ message: response.data.message })
+                this.setState(prevState => ({
+                    projectData: [...prevState.projectData, newData]
+                }))
+            } else {
+                this.setState({ message: response.data.message })
+            }
         }).catch(error =>{
             console.log(error)
         })
