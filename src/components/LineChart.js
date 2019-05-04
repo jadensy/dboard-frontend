@@ -27,7 +27,7 @@ const data = [
     },
 ];
 
-export default class Example extends PureComponent {
+export default class LineChartNew extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/xqjtetw0/';
 
     render() {
