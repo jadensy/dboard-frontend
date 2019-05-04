@@ -48,8 +48,9 @@ class Navbar extends React.Component {
     }
 
     handleLogout = () => {
-        localStorage.removeItem('JWT')
-        this.setState({ loggedIn: false })
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('User');
+        this.setState({ loggedIn: false });
     }
 
     render() {
@@ -70,8 +71,8 @@ class Navbar extends React.Component {
                             <Signup handleLoggedIn={this.handleLoggedIn} />
                         </> :
                         <>
-                        <Button href="/projects" className={classes.button} >Projects</Button>
                         <Button href="/clients" className={classes.button} >Clients</Button>
+                        <Button href="/projects" className={classes.button} >Projects</Button>
                         <Button href="/profile" className={classes.button} >Profile</Button>
                         <Button onClick={this.handleLogout} className={classes.button} >Log Out</Button>
                         </> }

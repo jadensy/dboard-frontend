@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper, Button, Grid,
-        Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core';
+        Dialog, DialogActions, DialogContent, DialogTitle, TextField, Icon } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const currencies = [
     {
@@ -128,23 +129,27 @@ export default class Projects extends React.Component {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>#</TableCell>
-                                <TableCell>Date</TableCell>
                                 <TableCell>Project</TableCell>
+                                <TableCell>Date</TableCell>
                                 <TableCell>Client</TableCell>
                                 <TableCell>Type</TableCell>
                                 <TableCell>Total</TableCell>
+                                <TableCell></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {this.state.projectData.sort((a,b) => a.id - b.id).map(row => (
                                 <TableRow key={row.id}>
-                                    <TableCell>{row.id}</TableCell>
-                                    <TableCell>{row.date}</TableCell>
                                     <TableCell>{row.name}</TableCell>
+                                    <TableCell>{row.date}</TableCell>
                                     <TableCell>{row.client_name}</TableCell>
                                     <TableCell>{row.project_type}</TableCell>
                                     <TableCell>{row.currency} {row.total}</TableCell>
+                                    <TableCell>
+                                        <Link to={"projects/" + row.id}>
+                                            <Icon style={{ color: '#808080', fontSize: 15 }}>edit</Icon>
+                                        </Link>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

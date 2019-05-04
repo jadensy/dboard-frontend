@@ -46,7 +46,7 @@ export default class Clients extends React.Component {
                                         <TableCell>Client</TableCell>
                                         <TableCell>Industry</TableCell>
                                         <TableCell>Country</TableCell>
-                                        <TableCell>Projects</TableCell>
+                                        {/* <TableCell>Projects</TableCell> */}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -55,7 +55,7 @@ export default class Clients extends React.Component {
                                             <TableCell>{row.name}</TableCell>
                                             <TableCell>{row.industry}</TableCell>
                                             <TableCell>{row.country}</TableCell>
-                                            {/* <TableCell>COUNT # OF PROJECTS PER CLIENT</TableCell> */}
+                                            {/* <TableCell>Count # of projects per client?</TableCell> */}
                                         </TableRow>
                                     ))}
                                 </TableBody>
