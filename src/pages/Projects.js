@@ -89,7 +89,6 @@ export default class Projects extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.npDate)
         axios({
             method: 'POST',
             url: 'http://127.0.0.1:5000/api/v1/projects/',
@@ -98,7 +97,7 @@ export default class Projects extends React.Component {
             },
             data: {
                 name: String(this.state.npName),
-                projectType: String(this.state.npType),
+                projectType: this.state.npType,
                 clientID: this.state.npClient,
                 date: String(this.state.npDate),
                 currency: String(this.state.npCurrency),
@@ -179,7 +178,7 @@ export default class Projects extends React.Component {
                             ))}
                         </TextField>
 
-                        <TextField id="Type" onChange={this.handleInput}
+                        <TextField id="npType" onChange={this.handleInput}
                             label="Project Type" placeholder="Project Type" margin="dense" fullWidth />
 
                         <TextField select id="npCurrency" onChange={this.handleInput}
