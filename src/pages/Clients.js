@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper, Grid, Button } from '@material-ui/core';
 
-
 export default class Clients extends React.Component {
     state = {
         error: '',

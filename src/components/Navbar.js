@@ -10,6 +10,7 @@ const styles = theme => ({
         backgroundColor: `${theme.palette.primary.main}`,
         position: "sticky",
         top: 0,
+        height: '7vh'
     },
     root: {
         flexGrow: 1,
@@ -35,6 +36,7 @@ class Navbar extends React.Component {
         if (localStorage.getItem('JWT')) {
             this.setState({ loggedIn: true })
         }
+        console.log(this.props)
     }
 
     // toggleDialog = () => {
@@ -51,6 +53,7 @@ class Navbar extends React.Component {
         localStorage.removeItem('JWT');
         localStorage.removeItem('User');
         this.setState({ loggedIn: false });
+        this.props.history.push("/")
     }
 
     render() {
@@ -62,9 +65,15 @@ class Navbar extends React.Component {
                 <AppBar className={classes.appBar}>
                     <Toolbar>
                         <Icon>show_chart</Icon>
-                        <Typography variant="h6" color="inherit" className={classes.grow}>
-                            <Link to="/" style={{color: '#ffffff', textDecoration: 'none'}}>Dashboard</Link>
+                        {!this.state.loggedIn ?
+                            <Typography variant="h6" color="inherit" className={classes.grow}>
+                                Dashboard
+                            </Typography> :
+                            <Typography variant="h6" color="inherit" className={classes.grow}>
+                                <Link to="/dashboard" style={{ color: '#ffffff', textDecoration: 'none' }}>Dashboard</Link>
                             </Typography>
+                        }
+
                         {!this.state.loggedIn ?
                         <>
                             <Login handleLoggedIn={this.handleLoggedIn} />

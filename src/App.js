@@ -8,7 +8,8 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 // import components
 import Navbar from './components/Navbar.js';
 import Profile from './pages/Profile.js'
-// import Dashboard from './pages/Dashboard.js'
+import Dashboard from './pages/Dashboard.js'
+import Splash from './pages/Splash.js'
 import Projects from './pages/Projects.js'
 import EditProject from './pages/EditProject.js'
 import Clients from './pages/Clients.js'
@@ -46,7 +47,8 @@ function App() {
       </MuiThemeProvider>
 
 
-      {/* <Route exact path="/" component={Dashboard} /> */}
+      <Route exact path="/" component={Splash} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="/profile" component={Profile} />
       <Route exact path="/projects" component={Projects} />
       <Route path="/projects/:id" component={EditProject} />

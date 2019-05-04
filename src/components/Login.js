@@ -38,6 +38,7 @@ class Login extends React.Component {
                 if (response.data.status === "success"){
                     localStorage.setItem('JWT', response.data.auth_token)
                     this.setState({ loggedIn: true, dialogOpen: false, message: response.data.message })
+                    this.props.history.push("/dashboard")
                 } else {
                     this.setState({ message: response.data.message })
                 }
