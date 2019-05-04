@@ -1,13 +1,15 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Icon } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Icon, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 
 const styles = theme => ({
     appBar: {
         backgroundColor: `${theme.palette.primary.main}`,
-        position: "static"
+        position: "fixed",
+        top: 0,
     },
     root: {
         flexGrow: 1,
@@ -15,6 +17,9 @@ const styles = theme => ({
     grow: {
         flexGrow: 1,
     },
+    button: {
+        color: '#ffffff',
+    }
 });
 
 class Navbar extends React.Component {
@@ -38,6 +43,16 @@ class Navbar extends React.Component {
         }))
     }
 
+    handleLoggedIn = () => {
+        this.setState({ loggedIn: true})
+    }
+
+    handleLogout = () => {
+        localStorage.removeItem('JWT')
+        this.setState({ loggedIn: false })
+        // add "are you sure?" dialog
+    }
+
     render() {
 
         const { classes } = this.props;
@@ -51,10 +66,13 @@ class Navbar extends React.Component {
                         </Typography>
                         {!this.state.loggedIn ?
                         <>
-                            <Login />
-                            <Signup />
-                        </>
-                        : <p> Log Out</p> }
+                            <Login handleLoggedIn={this.handleLoggedIn} />
+                            <Signup handleLoggedIn={this.handleLoggedIn} />
+                        </> :
+                        <>
+                        <Button href="/profile" className={classes.button} >Profile</Button>
+                        <Button onClick={this.handleLogout} className={classes.button} >Log Out</Button>
+                        </> }
                     </Toolbar>
                 </AppBar>
             </div>

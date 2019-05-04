@@ -29,33 +29,35 @@ export default class Clients extends React.Component {
     render() {
         return(
             <div>
-                <Typography variant="h4">Clients</Typography>
-                {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> : '' }
-                <Paper>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Client</TableCell>
-                                <TableCell>Industry</TableCell>
-                                <TableCell>Country</TableCell>
-                                <TableCell>Projects</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.state.clientData.sort((a,b) => a.id - b.id).map(row => (
-                                <TableRow key={row.id}>
-                                    <TableCell>{row.name}</TableCell>
-                                    <TableCell>{row.industry}</TableCell>
-                                    <TableCell>{row.country}</TableCell>
-                                    {/* <TableCell>COUNT # OF PROJECTS PER CLIENT</TableCell> */}
-                                </TableRow>
-                            ))}
-                        </TableBody>
+                {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> :
+                    <>
+                        <Paper style={{ padding: 15 }}>
+                            <Typography variant="h4">Clients</Typography>
+                        </Paper>
+                        <Paper>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Client</TableCell>
+                                        <TableCell>Industry</TableCell>
+                                        <TableCell>Country</TableCell>
+                                        <TableCell>Projects</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {this.state.clientData.sort((a, b) => a.id - b.id).map(row => (
+                                        <TableRow key={row.id}>
+                                            <TableCell>{row.name}</TableCell>
+                                            <TableCell>{row.industry}</TableCell>
+                                            <TableCell>{row.country}</TableCell>
+                                            {/* <TableCell>COUNT # OF PROJECTS PER CLIENT</TableCell> */}
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
 
-                    </Table>
-                </Paper>
-
-
+                            </Table>
+                        </Paper></>
+                }
             </div>
         )
     }

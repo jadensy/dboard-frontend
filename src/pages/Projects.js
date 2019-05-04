@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper, Grid } from '@material-ui/core';
 
 
 export default class Projects extends React.Component {
@@ -28,8 +28,11 @@ export default class Projects extends React.Component {
     render() {
         return(
             <div>
-                <Typography variant="h4">Projects</Typography>
-                {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> : '' }
+                {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> :
+                <>
+                <Paper style={{ padding: 15 }}>
+                    <Typography variant="h4">Projects</Typography>
+                </Paper>
                 <Paper>
                     <Table>
                         <TableHead>
@@ -54,11 +57,9 @@ export default class Projects extends React.Component {
                                 </TableRow>
                             ))}
                         </TableBody>
-
                     </Table>
-                </Paper>
-
-
+                </Paper></>
+                }
             </div>
         )
     }

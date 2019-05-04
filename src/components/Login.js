@@ -8,6 +8,7 @@ class Login extends React.Component {
         email: '',
         password: '',
         message: '',
+        loggedIn: false,
     };
 
     handleDialog = () => {
@@ -22,7 +23,6 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state.password, this.state.email);
 
         axios({
             method: 'POST',
@@ -35,17 +35,17 @@ class Login extends React.Component {
                 password: String(this.state.password)
             }
         }).then(response => {
-            console.log(response)
+            // console.log(response)
                 if (response.data.status === "success"){
                     localStorage.setItem('JWT', response.data.auth_token)
-                    this.setState({ dialogOpen: false, message: response.data.message })
+                    this.setState({ loggedIn: true, dialogOpen: false, message: response.data.message })
                 } else {
                     this.setState({ message: response.data.message })
                 }
         }).catch(error => {
-            console.log(error)
             this.setState({ message: "Something went wrong. Please try again."})
         })
+        this.props.handleLoggedIn()
     }
 
     render() {

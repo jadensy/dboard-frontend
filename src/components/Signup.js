@@ -50,7 +50,7 @@ class Signup extends React.Component {
             console.log(error)
             this.setState({ message: "Something went wrong. Please try again."})
         })
-
+        this.props.handleLoggedIn()
     }
 
     render() {

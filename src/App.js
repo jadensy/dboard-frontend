@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     fontFamily: "'Roboto', sans-serif",
     fontSize: 12,
     textTransform: "none",
-  }
+  },
 });
 
 function App() {
