@@ -24,8 +24,6 @@ class Signup extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state.username, this.state.password, this.state.email);
-        // submit working > test with API
 
         axios({
             method: 'POST',

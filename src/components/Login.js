@@ -35,7 +35,6 @@ class Login extends React.Component {
                 password: String(this.state.password)
             }
         }).then(response => {
-            // console.log(response)
                 if (response.data.status === "success"){
                     localStorage.setItem('JWT', response.data.auth_token)
                     this.setState({ loggedIn: true, dialogOpen: false, message: response.data.message })

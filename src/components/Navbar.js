@@ -1,14 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Icon, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 
 const styles = theme => ({
     appBar: {
         backgroundColor: `${theme.palette.primary.main}`,
-        position: "fixed",
+        position: "sticky",
         top: 0,
     },
     root: {
@@ -70,6 +69,8 @@ class Navbar extends React.Component {
                             <Signup handleLoggedIn={this.handleLoggedIn} />
                         </> :
                         <>
+                        <Button href="/projects" className={classes.button} >Projects</Button>
+                        <Button href="/clients" className={classes.button} >Clients</Button>
                         <Button href="/profile" className={classes.button} >Profile</Button>
                         <Button onClick={this.handleLogout} className={classes.button} >Log Out</Button>
                         </> }
