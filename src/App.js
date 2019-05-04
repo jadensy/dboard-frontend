@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 // import materialUI
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-// import Icon from '@material-ui/core/Icon';
+
 // import components
 import Navbar from './components/Navbar.js';
 import Profile from './pages/Profile.js'
@@ -42,9 +42,11 @@ function App() {
       <MuiThemeProvider theme={theme}>
         <header className="App-header">
           <Navbar />
-          {/* <Icon color="primary">star</Icon> */}
         </header>
       </MuiThemeProvider>
+
+
+      {/* <Route exact path="/" component={Dashboard} /> */}
       <Route path="/profile" component={Profile} />
       <Route exact path="/projects" component={Projects} />
       <Route path="/projects/:id" component={EditProject} />
