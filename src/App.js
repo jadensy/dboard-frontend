@@ -11,7 +11,6 @@ import Profile from './pages/Profile.js'
 // import Dashboard from './pages/Dashboard.js'
 import Projects from './pages/Projects.js'
 import Clients from './pages/Clients.js'
-// import Profile from './pages/Profile.js'
 
 const theme = createMuiTheme({
   palette: {

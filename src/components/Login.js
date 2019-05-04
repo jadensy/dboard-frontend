@@ -44,7 +44,7 @@ class Login extends React.Component {
         }).catch(error => {
             this.setState({ message: "Something went wrong. Please try again."})
         })
-        this.props.handleLoggedIn()
+        this.props.handleLoggedIn();
     }
 
     render() {
@@ -72,7 +72,6 @@ class Login extends React.Component {
                     <DialogActions>
                         <Button color="secondary" disabled={!loginEnabled} onClick={this.handleSubmit}>Log In</Button>
                     </DialogActions>
-
                 </Dialog>
 
             </>

@@ -26,7 +26,7 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dialog: false,
+            // dialog: false,
             loggedIn: false,
         }
     }
@@ -37,11 +37,11 @@ class Navbar extends React.Component {
         }
     }
 
-    toggleDialog = () => {
-        this.setState(prevState => ({
-            dialog: !prevState.dialog
-        }))
-    }
+    // toggleDialog = () => {
+    //     this.setState(prevState => ({
+    //         dialog: !prevState.dialog
+    //     }))
+    // }
 
     handleLoggedIn = () => {
         this.setState({ loggedIn: true})
@@ -50,7 +50,6 @@ class Navbar extends React.Component {
     handleLogout = () => {
         localStorage.removeItem('JWT')
         this.setState({ loggedIn: false })
-        // add "are you sure?" dialog
     }
 
     render() {

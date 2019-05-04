@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper, Grid, Button } from '@material-ui/core';
 
 
 export default class Clients extends React.Component {
@@ -32,9 +32,14 @@ export default class Clients extends React.Component {
                 {(this.state.error !== '') ? <p>You must be logged in to view this page.</p> :
                     <>
                         <Paper style={{ padding: 15 }}>
-                            <Typography variant="h4">Clients</Typography>
-                        </Paper>
-                        <Paper>
+                            <Grid container spacing={24} style={{ padding: 10 }} justify="flex-end">
+                                <Grid item xs={9}>
+                                    <Typography variant="h6">Clients</Typography>
+                                </Grid>
+                                <Grid item xs={3} style={{ textAlign: 'right' }}>
+                                    <Button color="secondary" onClick={this.handleDialog}>Add Client</Button>
+                                </Grid>
+                            </Grid>
                             <Table>
                                 <TableHead>
                                     <TableRow>
