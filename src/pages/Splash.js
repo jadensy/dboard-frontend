@@ -15,7 +15,7 @@ const styles = theme => ({
         float: 'right',
         marginTop: 15,
         marginRight: 15,
-        opacity: 0.75,
+        opacity: 0.85,
 
     },
     cardText: {
@@ -37,7 +37,6 @@ class Splash extends React.Component {
             })
             this.props.history.push("/dashboard")
         }
-
     }
 
     render() {
@@ -48,7 +47,7 @@ class Splash extends React.Component {
                 <Card className={classes.card}>
                     <CardContent>
                         <Typography variant="h6">Hello!</Typography>
-                        <Typography variant="subtitle" className={classes.cardText}>Please sign up or log in <br />to access the dashboard.</Typography>
+                        <Typography variant="subtitle2" className={classes.cardText}>Please sign up or log in <br />to access the dashboard.</Typography>
                     </CardContent>
                 </Card>
             </div>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Icon, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
 import Signup from './Signup';
 import Login from './Login';
 
-const styles = theme => ({
+const styles = (theme) => ({
     appBar: {
         backgroundColor: `${theme.palette.primary.main}`,
         position: "sticky",
@@ -27,7 +28,6 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // dialog: false,
             loggedIn: false,
         }
     }
@@ -39,14 +39,9 @@ class Navbar extends React.Component {
         console.log(this.props)
     }
 
-    // toggleDialog = () => {
-    //     this.setState(prevState => ({
-    //         dialog: !prevState.dialog
-    //     }))
-    // }
-
     handleLoggedIn = () => {
         this.setState({ loggedIn: true})
+        this.props.history.push("/dashboard")
     }
 
     handleLogout = () => {
@@ -92,4 +87,7 @@ class Navbar extends React.Component {
     }
 }
 
-export default withStyles(styles)(Navbar);
+export default compose(
+    withRouter,
+    withStyles(styles))(Navbar);
+    // wrap navbar with MaterialUI styles + ReactRouter to access props from both.
