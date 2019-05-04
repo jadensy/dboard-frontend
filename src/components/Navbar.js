@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Icon, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 
@@ -60,9 +61,10 @@ class Navbar extends React.Component {
             <div>
                 <AppBar className={classes.appBar}>
                     <Toolbar>
+                        <Icon>show_chart</Icon>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
-                            <Icon>show_chart</Icon>Dashboard
-                        </Typography>
+                            <Link to="/" style={{color: '#ffffff', textDecoration: 'none'}}>Dashboard</Link>
+                            </Typography>
                         {!this.state.loggedIn ?
                         <>
                             <Login handleLoggedIn={this.handleLoggedIn} />

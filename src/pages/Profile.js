@@ -59,7 +59,6 @@ export default class Profile extends React.Component {
             'headers': {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwt}`
-
             },
             data: {
                 username: String(this.state.username),
