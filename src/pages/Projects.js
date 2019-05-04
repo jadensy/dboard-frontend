@@ -159,7 +159,8 @@ export default class Projects extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.projectData.sort((a,b) => a.id - b.id).map(row => (
+                            {this.state.projectData.sort(
+                                (a, b) => Math.abs(new Date(b.date)) - Math.abs(new Date(a.date))).map(row => (
                                 <TableRow key={row.id}>
                                     <TableCell>{row.date}</TableCell>
                                     <TableCell>{row.name}</TableCell>
