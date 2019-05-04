@@ -78,7 +78,6 @@ class EditProject extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.type)
         const jwt = localStorage.getItem('JWT');
         axios({
             method: 'PUT',
@@ -94,6 +93,30 @@ class EditProject extends React.Component {
                 date: this.state.date,
                 currency: this.state.currency,
                 total: this.state.total
+            }
+        }).then(response => {
+            console.log(response)
+            if (response.data.status === "success") {
+                this.setState({ message: response.data.message })
+                this.props.history.push("/projects")
+            } else {
+                this.setState({ message: response.data.message })
+            }
+        }).catch(error => {
+            console.log(error)
+            this.setState({ message: "Something went wrong. Please try again." })
+        })
+    }
+
+    handleDelete= (e) => {
+        e.preventDefault();
+        const jwt = localStorage.getItem('JWT');
+        axios({
+            method: 'POST',
+            url: `http://127.0.0.1:5000/api/v1/projects/${this.props.match.params.id}/delete`,
+            'headers': {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwt}`
             }
         }).then(response => {
             console.log(response)
