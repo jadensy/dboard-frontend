@@ -36,7 +36,6 @@ class Navbar extends React.Component {
         if (localStorage.getItem('JWT')) {
             this.setState({ loggedIn: true })
         }
-        console.log(this.props)
     }
 
     handleLoggedIn = () => {

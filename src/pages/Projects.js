@@ -126,24 +126,35 @@ export default class Projects extends React.Component {
                         </Grid>
                     </Grid>
                     <Table>
+                        <colgroup>
+                            <col style={{ width: '10%' }} />
+                            <col style={{ width: '30%' }} />
+                            <col style={{ width: '15%' }} />
+                            <col style={{ width: '15%' }} />
+                            <col style={{ width: '5%' }} />
+                            <col style={{ width: '10%' }} />
+                            <col style={{ width: '5%' }} />
+                        </colgroup>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Project</TableCell>
                                 <TableCell>Date</TableCell>
+                                <TableCell>Project</TableCell>
                                 <TableCell>Client</TableCell>
                                 <TableCell>Type</TableCell>
-                                <TableCell>Total</TableCell>
+                                <TableCell align="right">Currency</TableCell>
+                                <TableCell align="right">Total</TableCell>
                                 <TableCell></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {this.state.projectData.sort((a,b) => a.id - b.id).map(row => (
                                 <TableRow key={row.id}>
-                                    <TableCell>{row.name}</TableCell>
                                     <TableCell>{row.date}</TableCell>
+                                    <TableCell>{row.name}</TableCell>
                                     <TableCell>{row.client_name}</TableCell>
                                     <TableCell>{row.project_type}</TableCell>
-                                    <TableCell>{row.currency} {row.total}</TableCell>
+                                    <TableCell align="right">{row.currency}</TableCell>
+                                    <TableCell align="right">{parseFloat(row.total).toLocaleString(undefined, { minimumFractionDigits: 2 })}</TableCell>
                                     <TableCell>
                                         <Link to={"projects/" + row.id}>
                                             <Icon style={{ color: '#808080', fontSize: 15 }}>edit</Icon>
