@@ -42,14 +42,14 @@ class EditProject extends React.Component {
         Promise.all([
             axios({
                 method: 'GET',
-                url: `http://127.0.0.1:5000/api/v1/projects/${this.props.match.params.id}`,
+                url: `https://quiet-anchorage-67868.herokuapp.com/api/v1/projects/${this.props.match.params.id}`,
                 'headers': {
                     Authorization: `Bearer ${jwt}`
                 }
             }),
             axios({
                 method: 'GET',
-                url: 'http://127.0.0.1:5000/api/v1/clients/index',
+                url: 'https://quiet-anchorage-67868.herokuapp.com/api/v1/clients/index',
                 'headers': {
                     Authorization: `Bearer ${jwt}`
                 }
@@ -81,7 +81,7 @@ class EditProject extends React.Component {
         const jwt = localStorage.getItem('JWT');
         axios({
             method: 'PUT',
-            url: `http://127.0.0.1:5000/api/v1/projects/${this.props.match.params.id}/update`,
+            url: `https://quiet-anchorage-67868.herokuapp.com/api/v1/projects/${this.props.match.params.id}/update`,
             'headers': {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwt}`
@@ -113,7 +113,7 @@ class EditProject extends React.Component {
         const jwt = localStorage.getItem('JWT');
         axios({
             method: 'POST',
-            url: `http://127.0.0.1:5000/api/v1/projects/${this.props.match.params.id}/delete`,
+            url: `https://quiet-anchorage-67868.herokuapp.com/api/v1/projects/${this.props.match.params.id}/delete`,
             'headers': {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwt}`

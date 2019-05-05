@@ -56,14 +56,14 @@ export default class Projects extends React.Component {
         Promise.all([
             axios({
                 method: 'GET',
-                url: 'http://127.0.0.1:5000/api/v1/projects/index',
+                url: 'https://quiet-anchorage-67868.herokuapp.com/api/v1/projects/index',
                 'headers': {
                     Authorization: `Bearer ${jwt}`
                 }
             }),
             axios({
                 method: 'GET',
-                url: 'http://127.0.0.1:5000/api/v1/clients/index',
+                url: 'https://quiet-anchorage-67868.herokuapp.com/api/v1/clients/index',
                 'headers': {
                     Authorization: `Bearer ${jwt}`
                 }
@@ -92,7 +92,7 @@ export default class Projects extends React.Component {
         e.preventDefault();
         axios({
             method: 'POST',
-            url: 'http://127.0.0.1:5000/api/v1/projects/',
+            url: 'https://quiet-anchorage-67868.herokuapp.com/api/v1/projects/',
             'headers': {
                 'Content-Type': 'application/json'
             },

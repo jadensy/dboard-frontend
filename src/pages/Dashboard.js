@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
 
         axios({
             method: 'GET',
-            url: 'http://127.0.0.1:5000/api/v1/dashboard/',
+            url: 'https://quiet-anchorage-67868.herokuapp.com/api/v1/dashboard/',
             'headers': {
                 Authorization: `Bearer ${jwt}`
             }
